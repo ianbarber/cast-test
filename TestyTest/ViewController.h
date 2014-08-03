@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleCast/GoogleCast.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <
+GCKDeviceFilterListener,
+GCKDeviceScannerListener,
+GCKDeviceManagerDelegate,
+GCKLoggerDelegate,
+GCKMediaControlChannelDelegate>
+- (IBAction)didDisableSubs:(id)sender;
+- (IBAction)didStopMovie:(id)sender;
+- (IBAction)didStartMovie:(id)sender;
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF73B4E8198C4AC70094504C /* GoogleCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF73B4E7198C4AC70094504C /* GoogleCast.framework */; };
+		EF73B4EA198C4ADF0094504C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF73B4E9198C4ADF0094504C /* CoreText.framework */; };
+		EF73B4EC198C4AEC0094504C /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF73B4EB198C4AEC0094504C /* MediaAccessibility.framework */; };
 		EFFA0E741988EE300002ACEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA0E731988EE300002ACEF /* Foundation.framework */; };
 		EFFA0E761988EE300002ACEF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA0E751988EE300002ACEF /* CoreGraphics.framework */; };
 		EFFA0E781988EE300002ACEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFA0E771988EE300002ACEF /* UIKit.framework */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF73B4E7198C4AC70094504C /* GoogleCast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleCast.framework; path = "../../Downloads/GoogleCastFramework-2.3.0-Release/GoogleCast.framework"; sourceTree = "<group>"; };
+		EF73B4E9198C4ADF0094504C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EF73B4EB198C4AEC0094504C /* MediaAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaAccessibility.framework; path = System/Library/Frameworks/MediaAccessibility.framework; sourceTree = SDKROOT; };
 		EFFA0E701988EE300002ACEF /* TestyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFFA0E731988EE300002ACEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EFFA0E751988EE300002ACEF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,6 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF73B4EC198C4AEC0094504C /* MediaAccessibility.framework in Frameworks */,
+				EF73B4EA198C4ADF0094504C /* CoreText.framework in Frameworks */,
+				EF73B4E8198C4AC70094504C /* GoogleCast.framework in Frameworks */,
 				EFFA0E761988EE300002ACEF /* CoreGraphics.framework in Frameworks */,
 				EFFA0E781988EE300002ACEF /* UIKit.framework in Frameworks */,
 				EFFA0E741988EE300002ACEF /* Foundation.framework in Frameworks */,
@@ -103,6 +112,9 @@
 		EFFA0E721988EE300002ACEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF73B4EB198C4AEC0094504C /* MediaAccessibility.framework */,
+				EF73B4E9198C4ADF0094504C /* CoreText.framework */,
+				EF73B4E7198C4AC70094504C /* GoogleCast.framework */,
 				EFFA0E731988EE300002ACEF /* Foundation.framework */,
 				EFFA0E751988EE300002ACEF /* CoreGraphics.framework */,
 				EFFA0E771988EE300002ACEF /* UIKit.framework */,
@@ -390,9 +402,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ianbarber/Downloads/GoogleCastFramework-2.3.0-Release",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestyTest/TestyTest-Prefix.pch";
 				INFOPLIST_FILE = "TestyTest/TestyTest-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +420,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ianbarber/Downloads/GoogleCastFramework-2.3.0-Release",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TestyTest/TestyTest-Prefix.pch";
 				INFOPLIST_FILE = "TestyTest/TestyTest-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,6 +492,7 @@
 				EFFA0EA71988EE310002ACEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EFFA0EA81988EE310002ACEF /* Build configuration list for PBXNativeTarget "TestyTestTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +501,7 @@
 				EFFA0EAA1988EE310002ACEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
