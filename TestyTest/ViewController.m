@@ -14,6 +14,7 @@
     GCKDeviceManager *_deviceManager;
     GCKMediaControlChannel *_mediaControlChannel;
     BOOL _subs;
+    NSInteger _pendingStyleChange;
 }
 
 @end
@@ -49,6 +50,7 @@ ViewController
 #pragma mark - GCKDeviceFilterListener
 - (void)deviceDidComeOnline:(GCKDevice *)device forDeviceFilter:(GCKDeviceFilter *)deviceFilter {
     NSLog(@"device found!!!");
+  if ([device.friendlyName isEqualToString:@"Matty Boo's Chromecast"]) {
     GCKDevice *selectedDevice = device;
     
     _deviceManager = [[GCKDeviceManager alloc]  initWithDevice:selectedDevice
@@ -56,6 +58,7 @@ ViewController
     
     _deviceManager.delegate = self;
     [_deviceManager connect];
+  }
 }
 
 - (void)deviceDidGoOffline:(GCKDevice *)device forDeviceFilter:(GCKDeviceFilter *)deviceFilter {
@@ -115,7 +118,11 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 }
 
 - (void)mediaControlChannel:(GCKMediaControlChannel *)mediaControlChannel requestDidCompleteWithID:(NSInteger)requestID {
-    NSLog(@"Request completed");
+  if (requestID == _pendingStyleChange) {
+    NSLog(@"Style update completed");
+  } else {
+    NSLog(@"Other request completed");
+  }
 }
 
 - (void) mediaControlChannelDidUpdateMetadata:(GCKMediaControlChannel *)mediaControlChannel {
@@ -144,5 +151,20 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 
 - (IBAction)didStartMovie:(id)sender {
        [_mediaControlChannel play];
+}
+
+- (IBAction)didChangeSubStyle:(id)sender {
+  GCKMediaTextTrackStyle *style = [GCKMediaTextTrackStyle createDefault];
+  [style setForegroundColor:[[GCKColor alloc] initWithCSSString:@"#FF000080"]];
+  NSInteger requestId =  [_mediaControlChannel setTextTrackStyle:style];
+  _pendingStyleChange = requestId;
+}
+
+- (IBAction)didTapDisconnect:(id)sender {
+  if ([_deviceManager isConnected]) {
+    [_deviceManager disconnect];
+  } else {
+    [_deviceManager connect];
+  }
 }
 @end

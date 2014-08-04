@@ -18,5 +18,7 @@ GCKMediaControlChannelDelegate>
 - (IBAction)didDisableSubs:(id)sender;
 - (IBAction)didStopMovie:(id)sender;
 - (IBAction)didStartMovie:(id)sender;
+- (IBAction)didChangeSubStyle:(id)sender;
+- (IBAction)didTapDisconnect:(id)sender;
 
 @end
